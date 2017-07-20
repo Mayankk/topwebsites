@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>Application configuration properties</comment>
+	<!-- database connection properties  -->
+	<entry key="database">jdbc:mysql://localhost:3306/website_views</entry>
+	<entry key="user">mk</entry>
+	<entry key="password">mk_manulife</entry>
+	
+	<!-- website views file location  -->
+	<entry key="websites_views_file">C:\Users\mkurra\Desktop\data.csv</entry>
+	<entry key="websites_views_file_separator">|</entry>
+
+	<!-- website views exclusion URL -->
+	<entry key="websites_exclusion_URL">http://private-1de182-mamtrialrankingadjustments4.apiary-mock.com/exclusions</entry>
+</properties>
