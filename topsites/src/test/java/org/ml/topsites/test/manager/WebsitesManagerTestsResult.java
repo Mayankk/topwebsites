@@ -41,7 +41,7 @@ public class WebsitesManagerTestsResult {
 		return websiteViews;
 	}
 
-	public static List<WebsiteViews> buildTop5List2() {
+	public static List<WebsiteViews> buildTopList2() {
 		List<WebsiteViews> websiteViews = new ArrayList<>();
 		WebsiteViews view = 
 				new WebsiteViewsImpl("www.google.com.au", 

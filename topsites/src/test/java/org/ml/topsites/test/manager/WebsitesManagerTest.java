@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.codehaus.jackson.type.TypeReference;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.ml.topsites.exception.TopSiteException;
 import org.ml.topsites.exception.TopSiteValidationException;
@@ -20,37 +21,24 @@ public class WebsitesManagerTest {
 	private static WebsitesManager manager = 
 			WebsitesManagerFactory.getWebsitesManager();
 
-	@Test
-	public void testLoadWebsitesData(){
+	@BeforeClass
+	public static void testLoadWebsitesAndExclusionData(){
 		try{
 			manager.updateWebsiteViews(ConfigProperties.fetchProperty(ConfigProperties.WEBSITE_VIEWS_FILE_PROP),
-					ConfigProperties.fetchProperty(ConfigProperties.WEBSITE_VIEWS_FILE_SEPARATOR_PROP));			Assert.assertEquals(true,true);
+					ConfigProperties.fetchProperty(ConfigProperties.WEBSITE_VIEWS_FILE_SEPARATOR_PROP));			
 
-			//If no exception, assumed to be done
-			//next step validating topwebsites list would validate the loading
-			Assert.assertEquals(true,true);
-		}catch(Exception e){
-			Assert.fail(e.getMessage());
-		}
-
-	}
-
-	@Test
-	public void testLoadWebsitesExclusions(){
-		try{
 			manager.updateWebsiteExclusions(ConfigProperties.fetchProperty(ConfigProperties.WEBSITES_EXCLUSION_URL_PROP));
-
 			//If no exception, assumed to be done
-			//next step getExclusions would validate the loading
+			//next step validating topwebsites list & getExclusions would validate the loading
 			Assert.assertEquals(true,true);
 		}catch(Exception e){
 			Assert.fail(e.getMessage());
 		}
 
 	}
-	
+
 	@Test
-	public void testExclusions(){
+	public void testGetExclusions(){
 		try{
 			List<WebsiteExclusion> actualExc = 
 					manager.getWebsiteExclusions(null);
@@ -104,7 +92,7 @@ public class WebsitesManagerTest {
 					manager.getTopWebsiteViews(2, "2016-01-13");
 
 			List<WebsiteViews> expectedWebsiteViews  = 
-					WebsitesManagerTestsResult.buildTop5List2();
+					WebsitesManagerTestsResult.buildTopList2();
 
 			boolean isEqual = 
 					actualWebsiteViews.equals(expectedWebsiteViews);
