@@ -148,6 +148,9 @@ public class WebsitesManagerImpl implements WebsitesManager{
 					FileUtils.readFileLines(location);
 			List<WebsiteViews> websiteViews = new ArrayList<>();
 			for(String line: content){
+				if(Utils.isNullOrEmpty(line)){
+					continue;
+				}
 				logger.debug("content : "+ line);
 				StringTokenizer tokenizer = 
 						new StringTokenizer(line,separator);

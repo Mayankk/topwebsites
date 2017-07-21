@@ -33,13 +33,15 @@ public class UserDaoImpl implements UserDao{
 
 		User user = null;
 		String sql = 
-				" select HEX(user_password) from " +SQLConstants.USER_TABLE;
+				" select HEX(user_password) from " +SQLConstants.USER_TABLE +
+					" where user_name = ?";
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			conn = ConnectionManager.getConnection();
 			ps = (PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, username);
 
 			rs = ps.executeQuery();
 

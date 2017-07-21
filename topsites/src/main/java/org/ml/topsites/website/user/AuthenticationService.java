@@ -13,7 +13,7 @@ public class AuthenticationService {
 	private static Logger logger =
 			LogManager.getLogger(AuthenticationService.class);
 	public static final String AUTHENTICATION_HEADER = "Authorization";
-	private static final String BASIC_KEY = "Basic";
+	public static final String BASIC_KEY = "Basic";
 
 	public boolean authenticate(String authCredentials) {
 		String[] usernameAndPassword = 
@@ -39,7 +39,7 @@ public class AuthenticationService {
 		return authenticationStatus;
 	}
 
-	public static String[] getUserNameAndPassword(String authorization)
+	private static String[] getUserNameAndPassword(String authorization)
 			{
 		String[] values =null;
 		if (authorization != null && authorization.startsWith(BASIC_KEY)) {
