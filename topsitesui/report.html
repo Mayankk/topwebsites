@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Top Sites Report</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        
+        <script src="js/libs/jquery-1.11.1.min.js"></script>
+        <script src="js/libs/jquery.mobile-1.4.5.min.js"></script>  
+        <script src="js/libs/jquery.cookie.js"></script>
+        <script src="js/report.js"></script>
+    </head>
+    
+    <body>
+        <div id="reportpage" data-role="page" align="center" >
+            <div data-role="header" data-theme="b">
+                <h1>Top Views Sites report</h1>
+            </div>
+            
+            <form class="reportdate">
+                <div  style="max-width: 250px;">
+                    Select Date: <input type="date" id="reportinputdate"/>
+                </div>
+                
+               <span id="websitesfound"></span>
+            </form>
+            
+            <ul data-role="listview" data-theme="a" 
+                    data-split-icon="gear"
+                    data-split-theme="a" 
+                    id="websiteviewslist" >
+                    
+            </ul>
+        </div>
+        
+    </body>
+</html>

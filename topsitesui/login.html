@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Top Web Sites Listing - Sign in Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        
+        <script src="js/libs/jquery-1.11.1.min.js"></script>
+        <script src="js/libs/jquery.mobile-1.4.5.min.js"></script>  
+        <script src="js/libs/jquery.cookie.js"></script>
+        <script src="js/login.js"></script>
+    </head>
+    
+    <body>
+        <div id="loginpage" data-role="page" align="center" >
+            <div data-role="header" data-theme="b">
+                <h1>Top Web Sites Listing - Sign in Page</h1>
+            </div>
+            
+            <div data-role="content" id="logincontent" >               
+                <form class="login" style="max-width: 450px;">
+                    <p>
+                        <input id="username" type="text"
+                               placeholder="User Name"
+                               required  data-theme="a"/>
+                    </p>
+                    
+                    <p>
+                        <input id="password" type="password"
+                               placeholder="Password" 
+                               required data-theme="a"/>
+                    </p>
+                    <strong id="loginfail"  style="display:none;color:red;" >Login failed. Please check and try again!</strong>
+                </form>
+                
+                <div class="ui-grid-a" style="max-width: 450px;">
+                    <div class="ui-block-a">
+                        <a id="userlogin" href="#" data-theme="b"
+                            data-role="button"
+                            class="submit">Login</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>
