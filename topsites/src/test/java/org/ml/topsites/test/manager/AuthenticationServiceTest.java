@@ -1,11 +1,15 @@
 package org.ml.topsites.test.manager;
 
 import java.nio.charset.Charset;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Base64;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.ml.topsites.util.JDBCUtil;
 import org.ml.topsites.website.dao.ConnectionManager;
 import org.ml.topsites.website.user.AuthenticationService;
 
@@ -25,11 +29,20 @@ public class AuthenticationServiceTest {
 		String insertSQL = 
 				"insert into users (user_name, user_password) values "
 						+ " ('"+validUser+"',UNHEX(SHA2('mayank_manulife',256)))";
+		Connection conn = null;
+		PreparedStatement ps = null;
 		try{
-			ConnectionManager.getConnection()
-				.prepareStatement(insertSQL).executeUpdate();
+			conn = ConnectionManager.getConnection();
+			ps = conn.prepareStatement(insertSQL);
+			ps.executeUpdate();
 		}catch(Exception e){
 			Assert.fail(e.getMessage());
+		}finally{
+			try {
+				JDBCUtil.close(ps, conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
