@@ -25,13 +25,16 @@ public class ApplicationStartup implements Runnable {
 			logger.info("updateWebsiteExclusions");
 			manager.updateWebsiteExclusions(ConfigProperties.fetchProperty(ConfigProperties.WEBSITES_EXCLUSION_URL_PROP));
 			logger.info("executed updateWebsiteExclusions");
-
+		} catch (TopSiteException e) {
+			logger.warn(e.getMessage(),e);
+		}
+		try {
 			logger.info("updateWebsiteViews");
 			manager.updateWebsiteViews(ConfigProperties.fetchProperty(ConfigProperties.WEBSITE_VIEWS_FILE_PROP),
 					ConfigProperties.fetchProperty(ConfigProperties.WEBSITE_VIEWS_FILE_SEPARATOR_PROP));
 			logger.info("executed updateWebsiteViews");
 		} catch (TopSiteException e) {
-			logger.error(e.getMessage(),e);
+			logger.warn(e.getMessage(),e);
 		}
 	}
 }
